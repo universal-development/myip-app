@@ -7,7 +7,7 @@ import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-
+import static com.unidev.platform.template.TemplateBuilder.*;
 import javax.servlet.http.HttpServletRequest;
 
 @Controller
@@ -30,7 +30,11 @@ public class MyIPController {
     @ResponseBody
     public String plainText() {
 
-        return "plainText";
+        String ip = extractClinetIp();
+
+        return newClassPathTemplate("plainText.template")
+                .addVariable("ip", ip)
+                .build();
     }
 
     @RequestMapping(value = "/", consumes = MediaType.APPLICATION_JSON_VALUE)

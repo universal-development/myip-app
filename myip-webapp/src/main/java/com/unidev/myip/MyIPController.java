@@ -1,5 +1,7 @@
 package com.unidev.myip;
 
+import com.unidev.platform.web.WebUtils;
+import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
@@ -13,6 +15,9 @@ public class MyIPController {
 
     @Autowired
     private HttpServletRequest request;
+
+    @Autowired
+    private WebUtils webUtils;
 
     @RequestMapping(value = "/", consumes = MediaType.TEXT_HTML_VALUE)
     @ResponseBody
@@ -30,9 +35,23 @@ public class MyIPController {
 
     @RequestMapping(value = "/", consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
-    public String plainJson() {
+    public JSONObject jsonRequest() {
 
-        return "plainJson";
+        String ip = extractClinetIp();
+
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("ip", ip);
+
+        return jsonObject;
+    }
+
+    /**
+     * Extract client IP from http request
+     * @return
+     */
+    protected String extractClinetIp() {
+        String clientId = webUtils.getClientIp(request);
+        return clientId;
     }
 
 }

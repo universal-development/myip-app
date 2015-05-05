@@ -12,7 +12,7 @@ subprojects {
     
     dependencies {
         compile 'com.unidev.platform:platform-common:1.1.0'
-        compile "com.unidev.platform:platform-templates:1.1.0"
+        compile 'com.unidev.platform:platform-templates:1.1.0'
 
         // test dependencies
         testCompile 'junit:junit:4.11'

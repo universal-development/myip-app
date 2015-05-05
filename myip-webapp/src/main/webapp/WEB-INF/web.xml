@@ -53,6 +53,16 @@
         <url-pattern>/jmx/*</url-pattern>
     </servlet-mapping>
 
+    <!-- Build information file -->
+    <servlet>
+        <servlet-name>build</servlet-name>
+        <jsp-file>/WEB-INF/jsp/build.jsp</jsp-file>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>build</servlet-name>
+        <url-pattern>/build</url-pattern>
+    </servlet-mapping>
 
 
 </web-app>

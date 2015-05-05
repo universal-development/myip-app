@@ -7,9 +7,14 @@ import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
+
 import static com.unidev.platform.template.TemplateBuilder.*;
 import javax.servlet.http.HttpServletRequest;
 
+/**
+ * Basic controller for requests
+ */
 @Controller
 public class MyIPController {
 
@@ -19,16 +24,17 @@ public class MyIPController {
     @Autowired
     private WebUtils webUtils;
 
-    @RequestMapping(value = "/", consumes = MediaType.TEXT_HTML_VALUE)
-    @ResponseBody
-    public String html() {
-
-        return "htmlBody";
+    @RequestMapping(value = "/")
+    public ModelAndView htmlRequest() {
+        String ip = extractClinetIp();
+        ModelAndView modelAndView = new ModelAndView("html");
+        modelAndView.addObject("ip", ip);
+        return modelAndView;
     }
 
     @RequestMapping(value = "/", consumes = MediaType.TEXT_PLAIN_VALUE)
     @ResponseBody
-    public String plainText() {
+    public String plainTextRequest() {
 
         String ip = extractClinetIp();
 

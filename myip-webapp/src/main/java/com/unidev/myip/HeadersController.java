@@ -14,7 +14,7 @@ import java.util.Enumeration;
 /**
  * Controller for returning all request headers
  */
-@Controller
+@Controller("/headers")
 public class HeadersController {
 
 
@@ -25,7 +25,7 @@ public class HeadersController {
     private WebUtils webUtils;
 
 
-    @RequestMapping(value = "/", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public JSONObject jsonRequest() {
         JSONObject jsonObject = new JSONObject();

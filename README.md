@@ -4,7 +4,7 @@ J2EE Webapp for getting client ip
 License
 =======
 
-    Copyright (c) 2015 Denis O
+    Copyright (c) 2015 Denis O <denis@universal-development.com>
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.

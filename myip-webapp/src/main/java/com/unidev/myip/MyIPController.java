@@ -27,7 +27,7 @@ public class MyIPController {
     @RequestMapping(value = "/")
     public ModelAndView htmlRequest() {
         String ip = extractClinetIp();
-        ModelAndView modelAndView = new ModelAndView("html");
+        ModelAndView modelAndView = new ModelAndView("myip");
         modelAndView.addObject("ip", ip);
         return modelAndView;
     }

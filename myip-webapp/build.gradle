@@ -6,6 +6,7 @@ dependencies {
 
     def springVersion = "4.0.6.RELEASE"
     def jacksonVersion = "2.5.1"
+    def springSecurityVersion = "3.2.5.RELEASE"
 
     compile "org.springframework:spring-webmvc:$springVersion"
     compile "org.springframework:spring-context-support:$springVersion"
@@ -13,6 +14,9 @@ dependencies {
     compile "com.fasterxml.jackson.core:jackson-core:$jacksonVersion"
     compile "com.fasterxml.jackson.core:jackson-databind:$jacksonVersion"
     compile "com.fasterxml.jackson.core:jackson-annotations:$jacksonVersion"
+
+    compile "org.springframework.security:spring-security-web:$springSecurityVersion"
+    compile "org.springframework.security:spring-security-config:$springSecurityVersion"
 
     compile "com.unidev.platform:platform-common-j2ee:1.1.0"
     compile 'org.jminix:jminix:1.1.0'

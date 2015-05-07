@@ -19,6 +19,21 @@
 
     <mvc:resources mapping="/static/**" location="/static/" />
 
+    <!-- Properties -->
+    <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+        <property name="ignoreResourceNotFound" value="true"/>
+        <property name="locations">
+            <list>
+                <value>classpath:/myip.properties</value>
+                <value>classpath:/myip.#{systemProperties['ENV']}.properties</value>
+                <value>file://${user.home}/myip/myip.properties</value>
+                <value>file://${user.home}/myip/myip.#{systemProperties['ENV']}.properties</value>
+            </list>
+        </property>
+    </bean>
+
+    <context:property-placeholder properties-ref="propertyConfigurer" ignore-resource-not-found="true" ignore-unresolvable="true" />
+
     <!-- JMX -->
     <context:mbean-export registration="replaceExisting" />
 

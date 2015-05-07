@@ -4,7 +4,7 @@ subprojects {
     apply plugin: 'idea'
 
     group = 'com.unidev.myip'
-    version = '0.0.2-SNAPSHOT'
+    version = '0.0.2'
 
     apply from: 'http://dev.local/gradle/uploadArchivesSftp.groovy'
     apply from: 'http://dev.local/gradle/javadoc.groovy'

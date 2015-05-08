@@ -10,6 +10,7 @@
     <tr><td width="20%;">BUILD_NUMBER</td><td>@BUILD_NUMBER@</td></tr>
     <tr><td>BUILD_ID</td><td>@BUILD_ID@</td></tr>
     <tr><td>GIT_COMMIT</td><td>@GIT_COMMIT@</td></tr>
+    <tr><td>PROJECT_VERSION</td><td>@PROJECT_VERSION@</td></tr>
 </table>
 </body>
 </html>

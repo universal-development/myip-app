@@ -51,7 +51,8 @@ war {
     filter(ReplaceTokens, tokens: [
             "BUILD_ID" : System.getProperty("BUILD_ID") + "",
             "GIT_COMMIT" : System.getProperty("GIT_COMMIT") + "",
-            "BUILD_NUMBER" : System.getProperty("BUILD_NUMBER") + ""
+            "BUILD_NUMBER" : System.getProperty("BUILD_NUMBER") + "",
+            "PROJECT_VERSION" : version
     ])
 }
 

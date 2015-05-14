@@ -1,6 +1,13 @@
 # myip-app
 J2EE Webapp for getting client ip
 
+Examples:
+
+`curl -v --header "Content-Type: application/json"  http://myip.apps.universal-development.com/`
+
+`curl -v --header "Content-Type: text/plain"  http://myip.apps.universal-development.com/`
+
+
 License
 =======
 

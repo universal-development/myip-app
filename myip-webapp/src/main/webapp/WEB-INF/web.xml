@@ -15,6 +15,7 @@
     <context-param>
         <param-name>contextConfigLocation</param-name>
         <param-value>
+            classpath*:/platform-common-beans.xml,
             classpath:/webapp-beans.xml,
             classpath:/core-beans.xml,
             classpath:/spring-security-beans.xml
@@ -32,6 +33,7 @@
         <init-param>
             <param-name>contextConfigLocation</param-name>
             <param-value>
+                classpath*:/platform-common-beans.xml,
                 classpath:/webapp-beans.xml,
                 classpath:/core-beans.xml,
                 classpath:/spring-security-beans.xml

@@ -3,9 +3,10 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title></title>
+    <title>Build Info</title>
 </head>
 <body>
+<h1>Build info</h1>
 <table border="1">
     <tr><td width="20%;">BUILD_NUMBER</td><td>@BUILD_NUMBER@</td></tr>
     <tr><td>BUILD_ID</td><td>@BUILD_ID@</td></tr>

@@ -1,2 +1,2 @@
-include "myip-webapp"
-include "myip-core"
+include "webapp"
+include "core"

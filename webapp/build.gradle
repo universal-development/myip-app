@@ -8,7 +8,7 @@ def unidevPlatformVersion = "1.2.0"
 
 dependencies {
 
-    compile project(":myip-core")
+    compile project(":core")
 
     compile "org.springframework:spring-webmvc:$springVersion"
     compile "org.springframework:spring-context-support:$springVersion"

@@ -38,7 +38,7 @@ public class MyIPController {
 
         String ip = extractClinetIp();
 
-        return newClassPathTemplate("myip.template")
+        return newClassPathTemplate("myip.ftl")
                 .addVariable("ip", ip)
                 .build();
     }

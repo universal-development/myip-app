@@ -39,7 +39,7 @@ public class HeadersController {
     @ResponseBody
     public String plainTextRequest() {
         JSONObject headers = buildHeadersJson();
-        return newClassPathTemplate("headers.template")
+        return newClassPathTemplate("headers.ftl")
                 .addVariable("headers", headers)
                 .build();
     }

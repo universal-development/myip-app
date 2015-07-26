@@ -17,7 +17,7 @@ import static com.unidev.platform.template.TemplateBuilder.newClassPathTemplate;
 /**
  * Controller for returning all request headers
  */
-@Controller("/headers")
+@Controller
 public class HeadersController {
 
 
@@ -27,7 +27,7 @@ public class HeadersController {
     @Autowired
     private WebUtils webUtils;
 
-    @RequestMapping
+    @RequestMapping(value = "/headers")
     public ModelAndView htmlRequest() {
         JSONObject headers = buildHeadersJson();
         ModelAndView modelAndView = new ModelAndView("headers");
@@ -35,7 +35,7 @@ public class HeadersController {
         return modelAndView;
     }
 
-    @RequestMapping(consumes = MediaType.TEXT_PLAIN_VALUE)
+    @RequestMapping(value = "/headers", consumes = MediaType.TEXT_PLAIN_VALUE)
     @ResponseBody
     public String plainTextRequest() {
         JSONObject headers = buildHeadersJson();
@@ -44,7 +44,7 @@ public class HeadersController {
                 .build();
     }
 
-    @RequestMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/headers", consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public JSONObject jsonRequest() {
         return buildHeadersJson();

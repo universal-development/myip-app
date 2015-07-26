@@ -24,7 +24,7 @@ public class MyIPController {
     @Autowired
     private WebUtils webUtils;
 
-    @RequestMapping(value = "/")
+    @RequestMapping(value = "/ip")
     public ModelAndView htmlRequest() {
         String ip = extractClinetIp();
         ModelAndView modelAndView = new ModelAndView("myip");
@@ -32,7 +32,7 @@ public class MyIPController {
         return modelAndView;
     }
 
-    @RequestMapping(value = "/", consumes = MediaType.TEXT_PLAIN_VALUE)
+    @RequestMapping(value = "/ip", consumes = MediaType.TEXT_PLAIN_VALUE)
     @ResponseBody
     public String plainTextRequest() {
 
@@ -43,7 +43,7 @@ public class MyIPController {
                 .build();
     }
 
-    @RequestMapping(value = "/", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/ip", consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public JSONObject jsonRequest() {
 

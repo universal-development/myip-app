@@ -1,5 +1,6 @@
-package com.unidev.myip;
+package com.unidev.myip.web;
 
+import com.unidev.myip.MyIPService;
 import com.unidev.platform.web.WebUtils;
 import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Enumeration;
+import java.util.List;
+import java.util.Map;
 
 import static com.unidev.platform.template.TemplateBuilder.newClassPathTemplate;
 
@@ -25,7 +28,7 @@ public class HeadersController {
     private HttpServletRequest request;
 
     @Autowired
-    private WebUtils webUtils;
+    private MyIPService myIPService;
 
     @RequestMapping(value = "/headers")
     public ModelAndView htmlRequest() {
@@ -53,10 +56,10 @@ public class HeadersController {
     protected JSONObject buildHeadersJson() {
         JSONObject jsonObject = new JSONObject();
 
-        Enumeration headerNames = request.getHeaderNames();
-        while(headerNames.hasMoreElements()) {
-            String headerName = (String)headerNames.nextElement();
-            String headerValue = request.getHeader(headerName);
+        List<Map.Entry<String, Object>> entries = myIPService.extractHeaders(request);
+        for(Map.Entry<String, Object> entry : entries) {
+            String headerName =  entry.getKey();
+            String headerValue = entry.getValue() + "";
 
             jsonObject.put(headerName, headerValue);
         }

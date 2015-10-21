@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Service for listing client ip and headers
@@ -21,9 +23,19 @@ public class MyIPService {
      * Extract client IP from http request
      * @return
      */
-    protected String extractClinetIp(HttpServletRequest request) {
+    public String extractClinetIp(HttpServletRequest request) {
         String clientId = webUtils.getClientIp(request);
         return clientId;
     }
+
+    /**
+     * List all headers from request
+     * @param request
+     * @return
+     */
+    public List<Map.Entry<String, Object>> extractHeaders(HttpServletRequest request) {
+        return webUtils.listAllHeaders(request);
+    }
+
 
 }

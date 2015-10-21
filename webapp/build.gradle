@@ -18,6 +18,7 @@ dependencies {
 
     compile "com.unidev.platform:platform-common-j2ee:$unidevPlatformVersion"
 
+    compile "javax.servlet:jstl:1.2"
     compile 'org.jminix:jminix:1.2.0'
 
 }

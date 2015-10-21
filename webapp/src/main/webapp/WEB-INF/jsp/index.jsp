@@ -2,10 +2,14 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
-    <title></title>
+    <title>My IP</title>
 </head>
 <body>
 <h1>My IP</h1>
+
+<a href="/ip">List request IP</a>
+<a href="/headers">List request headers</a>
+
 <hr/>
 <div align="center">
     <h1>IP : ${ip}</h1>

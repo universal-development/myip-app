@@ -1,5 +1,6 @@
-package com.unidev.myip;
+package com.unidev.myip.web;
 
+import com.unidev.myip.MyIPService;
 import com.unidev.platform.web.WebUtils;
 import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,11 +23,11 @@ public class MyIPController {
     private HttpServletRequest request;
 
     @Autowired
-    private WebUtils webUtils;
+    private MyIPService myIPService;
 
     @RequestMapping(value = "/ip")
     public ModelAndView htmlRequest() {
-        String ip = extractClinetIp();
+        String ip = myIPService.extractClinetIp(request);
         ModelAndView modelAndView = new ModelAndView("myip");
         modelAndView.addObject("ip", ip);
         return modelAndView;
@@ -36,8 +37,7 @@ public class MyIPController {
     @ResponseBody
     public String plainTextRequest() {
 
-        String ip = extractClinetIp();
-
+        String ip = myIPService.extractClinetIp(request);
         return newClassPathTemplate("myip.ftl")
                 .addVariable("ip", ip)
                 .build();
@@ -47,21 +47,13 @@ public class MyIPController {
     @ResponseBody
     public JSONObject jsonRequest() {
 
-        String ip = extractClinetIp();
-
+        String ip = myIPService.extractClinetIp(request);
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("ip", ip);
 
         return jsonObject;
     }
 
-    /**
-     * Extract client IP from http request
-     * @return
-     */
-    protected String extractClinetIp() {
-        String clientId = webUtils.getClientIp(request);
-        return clientId;
-    }
+
 
 }

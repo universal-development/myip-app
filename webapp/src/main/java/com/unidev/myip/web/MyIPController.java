@@ -1,7 +1,6 @@
 package com.unidev.myip.web;
 
 import com.unidev.myip.MyIPService;
-import com.unidev.platform.web.WebUtils;
 import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -10,8 +9,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import static com.unidev.platform.template.TemplateBuilder.*;
 import javax.servlet.http.HttpServletRequest;
+
+import static com.unidev.platform.template.TemplateBuilder.newClassPathTemplate;
 
 /**
  * Basic controller for requests
